@@ -8,7 +8,6 @@ gem 'rails', '3.2.6'
 gem 'mongoid', '~> 2.4'
 gem 'bson_ext', '~> 1.5'
 
-gem 'bootstrap-sass'
 gem 'thin'
 gem 'nokogiri'
 

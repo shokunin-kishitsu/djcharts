@@ -1,0 +1,8 @@
+<% @nodes.each do |node|
+  cat = node.at_css('a.cat')
+  country = node.css('a')[2] %>
+  Date: <%= node.at_css('span.grey').text() %><br>
+  Name: <a href='<%= @ra_url %><%= cat.attr('href') %>'><%= cat.text() %></a><br>
+  <img src='<%= @ra_url %><%= node.at_css('img').attr('src') %>' />
+  <a href='<%= @ra_url %><%= country.attr('src') %>' title='<%= country.attr('title') %>'><img src='<%= @ra_url %><%= country.at_css('img').attr('src') %>' /></a><br><br>
+<% end %>
