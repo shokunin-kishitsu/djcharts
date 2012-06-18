@@ -40,7 +40,16 @@ years.each do |year|
         chart_location = ra_url + node.at_css('a.cat').attr('href')
         chart_doc = Nokogiri::HTML(open(chart_location))
         tracks = chart_doc.at_css('table#tracks')
-        tracks.css('tr').each {|tr| puts tr.to_s }
+
+        lines = []
+
+        tracks.css('tr').each do |tr|
+          tr.css('td').each do |td|
+            text = td.text()
+            lines << text unless text.blank?
+          end
+        end
+        p lines.drop(4)
         exit
         # dj.charts.create(date: chart_date, location: chart_location)
       end
